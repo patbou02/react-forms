@@ -8,9 +8,12 @@ export default function Signup() {
     const enteredEmail = formData.get('email');
     // Using this Object.fromEntries() and formData.entries() method to convert
     // the FormData object to a plain object which is easier to work with.
+    const acquisitionChannel = formData.getAll('acquisition');
     const data = Object.fromEntries(formData.entries());
 
     console.log('Entered email:', enteredEmail);
+
+    data.acquisition = acquisitionChannel;
     console.log(data);
   };
 
