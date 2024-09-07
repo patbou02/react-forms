@@ -14,6 +14,8 @@ export default function Login() {
 
     console.log('Email:', enteredEmail);
     console.log('Password:', enteredPassword);
+
+    e.target.reset();
   };
 
   return (

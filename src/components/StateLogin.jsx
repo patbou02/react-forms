@@ -13,6 +13,11 @@ export default function Login() {
     e.preventDefault();
     console.log('Login form submitted');
     console.log('Entered values:', enteredValues);
+
+    setEnteredValues({
+      email: '',
+      password: ''
+    });
   };
 
   //const handleEmailChange = e => setEnteredEmail(e.target.value);
