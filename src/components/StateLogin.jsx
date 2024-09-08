@@ -8,8 +8,12 @@ export default function Login() {
     email: '',
     password: ''
   });
+  const [didEdit, setDidEdit] = useState({
+    email: false,
+    password: false
+  });
 
-  const emailIsInvalid = enteredValues.email !== '' && !enteredValues.email.includes('@');
+  const emailIsInvalid = didEdit.email && !enteredValues.email.includes('@');
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -20,6 +24,13 @@ export default function Login() {
       email: '',
       password: ''
     });
+  };
+
+  const handleInputBlur = identifier => {
+    setDidEdit(prevState => ({
+      ...prevState,
+      [identifier]: true
+    }));
   };
 
   //const handleEmailChange = e => setEnteredEmail(e.target.value);
@@ -45,6 +56,7 @@ export default function Login() {
             name="email"
             onChange={(e) => handleInputChange('email', e)}
             value={enteredValues.email}
+            onBlur={() => handleInputBlur('email')}
           />
           {emailIsInvalid && <p className="control-error">Please enter a valid email.</p>}
         </div>
