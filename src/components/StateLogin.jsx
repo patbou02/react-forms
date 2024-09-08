@@ -41,6 +41,10 @@ export default function Login() {
       ...prevState,
       [identifier]: e.target.value
     }));
+    setDidEdit(prevState => ({
+      ...prevState,
+      [identifier]: false
+    }));
   };
 
   return (
